@@ -1,1 +1,22 @@
 # see https://docs.silverstripe.org/en/developer_guides/configuration/configuration/
+Dex\Configuration:
+  allowed_classes:
+    - Page
+    - BaseElement
+
+
+# see https://docs.silverstripe.org/en/developer_guides/configuration/configuration/
+---
+Name: silverstripe-dex
+After:
+  - "#silverstripe-react"
+  - "#marcz-federer"
+---
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_javascript:
+    "dannidickson/dex: client/dist/remoteEntry.js":
+      type: "application/javascript"
+    "dannidickson/dex: client/dist/js/bundle.js":
+      type: "application/javascript"
+  extra_requirements_css:
+    - "dannidickson/dex: client/dist/styles/bundle.css"

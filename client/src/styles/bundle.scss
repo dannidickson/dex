@@ -3,6 +3,7 @@
 
 // Import your SCSS stylesheets using relative paths from "components"
 @import '../components/ExampleComponent/ExampleComponent.scss';
+@import '../components/TableBuilder/TableBuilder.scss';
 
 // Import other legacy SCSS stylesheets that don't relate to react components
 @import 'admin/pages/pages';
