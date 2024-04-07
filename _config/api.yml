@@ -1,0 +1,9 @@
+---
+Name: dex-routes
+After:
+  - '#rootroutes'
+  - '#coreroutes'
+---
+SilverStripe\Control\Director:
+  rules:
+    'dex/api/1/reports//$Action': Dex\API\ReportBuilderAPI
