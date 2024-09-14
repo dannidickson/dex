@@ -1,6 +1,6 @@
 {
-    "name": "silverstripe-module/skeleton",
-    "description": "A skeleton for Silverstripe CMS modules.",
+    "name": "dannidickson/dex",
+    "description": "Dex - Custom data export and reporting module",
     "type": "silverstripe-vendormodule",
     "keywords": [
         "silverstripe",
