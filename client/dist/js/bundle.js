@@ -1,4 +1,5 @@
 /******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./client/src/boot/index.js":
@@ -7,7 +8,6 @@
   \**********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var boot_registerComponents__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! boot/registerComponents */ "./client/src/boot/registerComponents.js");
 /* harmony import */ var boot_installComponents__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! boot/installComponents */ "./client/src/boot/installComponents.js");
@@ -26,7 +26,6 @@ window.document.addEventListener('DOMContentLoaded', () => {
   \**********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -63,7 +62,6 @@ __webpack_require__.r(__webpack_exports__);
   \***********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var components_ExampleComponent_ExampleComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! components/ExampleComponent/ExampleComponent */ "./client/src/components/ExampleComponent/ExampleComponent.js");
 /* harmony import */ var components_TableBuilder_TableBuilder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! components/TableBuilder/TableBuilder */ "./client/src/components/TableBuilder/TableBuilder.js");
@@ -78,7 +76,6 @@ __webpack_require__.r(__webpack_exports__);
   if (container) {
     container.init();
     container.get('Federer/Injector').then(module => {
-      console.log('aaa');
       const Injector = module().default;
       Injector.component.registerMany({
         'Dex.ExampleComponent': components_ExampleComponent_ExampleComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -98,13 +95,33 @@ __webpack_require__.r(__webpack_exports__);
   \**************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var entwine_example_file__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! entwine/example-file */ "./client/src/entwine/example-file.js");
-/* harmony import */ var entwine_example_file__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(entwine_example_file__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _grid_field_reloader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./grid-field-reloader */ "./client/src/bundles/grid-field-reloader.js");
 /* harmony import */ var boot__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! boot */ "./client/src/boot/index.js");
 
 
+
+/***/ }),
+
+/***/ "./client/src/bundles/grid-field-reloader.js":
+/*!***************************************************!*\
+  !*** ./client/src/bundles/grid-field-reloader.js ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+jquery__WEBPACK_IMPORTED_MODULE_0___default().entwine('ss', function ($) {
+  $('.cms form[action^="admin/dex-custom-reporting/"] .grid-field:not([cms-loading-ignore-url-params])').entwine({
+    showDetailView: function (url, event) {
+      if (url.includes('admin/dex-custom-reporting/')) {
+        window.location.href = url;
+      }
+    }
+  });
+});
 
 /***/ }),
 
@@ -114,7 +131,6 @@ __webpack_require__.r(__webpack_exports__);
   \******************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 function Dashboard(props) {
   let types = props.CustomReports;
@@ -130,7 +146,6 @@ function Dashboard(props) {
   \********************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -148,7 +163,6 @@ const ExampleComponent = () => react__WEBPACK_IMPORTED_MODULE_0___default().crea
   \************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -271,7 +285,6 @@ function TableBuilder(props) {
   \********************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 function TableGraph(props) {
   let types = props.graphTypes;
@@ -281,25 +294,12 @@ function TableGraph(props) {
 
 /***/ }),
 
-/***/ "./client/src/entwine/example-file.js":
-/*!********************************************!*\
-  !*** ./client/src/entwine/example-file.js ***!
-  \********************************************/
-/***/ (function() {
-
-(function ($) {
-  $(document).ready(() => {});
-})(jQuery);
-
-/***/ }),
-
 /***/ "react":
 /*!************************!*\
   !*** external "React" ***!
   \************************/
 /***/ (function(module) {
 
-"use strict";
 module.exports = React;
 
 /***/ }),
@@ -310,8 +310,17 @@ module.exports = React;
   \*********************************/
 /***/ (function(module) {
 
-"use strict";
 module.exports = ReactDomClient;
+
+/***/ }),
+
+/***/ "jquery":
+/*!*************************!*\
+  !*** external "jQuery" ***!
+  \*************************/
+/***/ (function(module) {
+
+module.exports = jQuery;
 
 /***/ })
 

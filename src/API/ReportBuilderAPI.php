@@ -68,8 +68,6 @@ class ReportBuilderAPI extends Controller {
         $sqlQuery->setSelect(implode(',', $body->columns));
 
 
-
-
         if (property_exists($body, 'limit')) {
             $sqlQuery->setLimit($body->limit);
         }

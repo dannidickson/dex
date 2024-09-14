@@ -3,6 +3,7 @@
 namespace Dex\Admin;
 
 use Dex\Model\CustomReportDataObject;
+use Dex\Repository\DataSetRepository;
 use Marcz\Federer\Forms\FederatedComponent;
 use SilverStripe\Admin\LeftAndMain;
 use SilverStripe\Forms\FieldList;
@@ -25,25 +26,10 @@ class DexDashbardAdmin extends LeftAndMain
             FederatedComponent::create('Dashboard')
                 ->setComponentName('Dex.Dashboard')
                 ->setComponentProps([
-                    'CustomReports' => $this->getCustomReports(),
+                    'CustomReports' => DataSetRepository::getAll(),
                 ]),
         ]));
 
         return $form;
-    }
-
-    public function getCustomReports(): array
-    {
-        $data = [];
-        $reports = CustomReportDataObject::get()->toNestedArray();
-
-        foreach ($reports as $key => $value) {
-            array_push($data, [
-                'Title' => 'Report' ,
-                'ID' => $value['ID'],
-            ]);
-        }
-
-        return $data;
     }
 }

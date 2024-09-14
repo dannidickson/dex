@@ -12,9 +12,6 @@ var Dex;
 var moduleMap = {
 	"Dex/TableBuilder": function() {
 		return __webpack_require__.e("client_src_components_TableBuilder_TableBuilder_js").then(function() { return function() { return (__webpack_require__(/*! ./client/src/components/TableBuilder/TableBuilder.js */ "./client/src/components/TableBuilder/TableBuilder.js")); }; });
-	},
-	"Dex/ExampleComponent": function() {
-		return __webpack_require__.e("client_src_components_ExampleComponent_ExampleComponent_js").then(function() { return function() { return (__webpack_require__(/*! ./client/src/components/ExampleComponent/ExampleComponent.js */ "./client/src/components/ExampleComponent/ExampleComponent.js")); }; });
 	}
 };
 var get = function(module, getScope) {

@@ -7,33 +7,40 @@ use Marcz\Federer\Forms\FederatedComponent;
 use Marcz\Federer\Forms\FederatedFields;
 use SilverStripe\Dev\Debug;
 use SilverStripe\Forms\HiddenField;
+use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataObject;
+use Dex\Model\Dataset;
+use Dex\Repository\DataSetRepository;
+use SilverStripe\Forms\DropdownField;
 
-class CustomReportDataObject extends DataObject
+class CustomReport extends DataObject
 {
     private static array $db = [
         'Title' => 'Text',
-        'ReportConfiguration' => 'Text',
     ];
+
+    // private static array $has_many = [
+    //     'DataSet' => Dataset::class,
+    // ];
 
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $tableNames = $this->getAllDataObjects();
 
-        $fields->removeByName('Title');
+        $fields->removeByName([
+            'Title',
+        ]);
 
         $fields->addFieldsToTab('Root.Main', [
-            HiddenField::create('ReportTable'),
-            HiddenField::create('ReportFields'),
-            HiddenField::create('ReportLimit'),
-            HiddenField::create('ReportGroupBy'),
-            FederatedComponent::create('TableBuilder')
-                ->setComponentName('Dex.TableBuilder')
-                ->setComponentProps([
-                    'tableTitle' => 'Build a new report',
-                    'tables' => json_encode($tableNames),
-                ]),
+            TextField::create('Title', 'Report title'),
+            DropdownField::create('DropdownWidget', 'Add report widget', [
+                'dataset' => 'Display table data',
+                'bar-graph' => 'Bar graph',
+                'line-graph' => 'Line graph'
+            ]),
+
+            DropdownField::create('title', 'List of all the datasets', DataSetRepository::getAllTitles()),
+
             FederatedComponent::create('TableGraph')
                 ->setComponentName('Dex.TableGraph')
                 ->setComponentProps([
@@ -45,30 +52,6 @@ class CustomReportDataObject extends DataObject
                 ]),
         ]);
 
-
         return $fields;
-    }
-
-    public function onBeforeWrite(): void {
-        $this->ReportConfiguration = $this->createConfigurationObject($this->record);
-        parent::onBeforeWrite();
-    }
-
-    private function getAllDataObjects(): array
-    {
-        $schema = DexDataObjectSchema::create();
-        return $schema->getDexReportTables();
-    }
-
-    private function createConfigurationObject(array $record): string {
-
-        $configuration = [
-            'Table' => $record['ReportTable'] ?? '',
-            'Fields' => $record['ReportFields'] ?? '',
-            'GroupBy' => $record['ReportGroupBy'] ?? '',
-            'Limit' => $record['ReportLimit'] ?? '',
-        ];
-
-        return json_encode($configuration);
     }
 }

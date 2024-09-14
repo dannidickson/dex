@@ -1,5 +1,5 @@
 // Include any legacy Entwine wrappers
-import 'entwine/example-file';
+import './grid-field-reloader';
 
 // Include boot entrypoint
 import 'boot';
