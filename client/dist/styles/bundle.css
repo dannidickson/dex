@@ -1,1 +1,47 @@
-.example-component{display:block}
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[0].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[4]!./client/src/styles/bundle.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.example-component {
+  display: block;
+}
+
+.dex-report-builder {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.dex-builder__fields, .dex-builder__tables {
+  border: 1px solid grey;
+  background: white;
+  padding: 20px;
+  min-width: 240px;
+  height: 800px;
+  overflow: auto;
+}
+
+.dex-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dex-item {
+  padding: 1rem;
+  cursor: pointer;
+  border: 1px solid #C8D0DD;
+}
+.dex-item:hover {
+  background: #C8D0DD;
+}
+
+.dex-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.dex-table td, .dex-table th {
+  border: 1px solid #C8D0DD;
+  padding: 8px;
+}
+
+/*# sourceMappingURL=bundle.css.map*/
