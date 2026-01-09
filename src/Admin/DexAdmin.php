@@ -1,12 +1,12 @@
 <?php
 
-namespace Dex\Admin;
+namespace dannidickson\prismatic\Admin;
 
-use Dex\Model\CustomReport;
-use Dex\Model\CustomReportDataObject;
-use Dex\Model\Dataset;
-use Dex\Repository\DataSetRepository;
-use Dex\Repository\ReportRepository;
+use dannidickson\prismatic\Model\CustomReport;
+use dannidickson\prismatic\Model\CustomReportDataObject;
+use dannidickson\prismatic\Model\Dataset;
+use dannidickson\prismatic\Repository\DataSetRepository;
+use dannidickson\prismatic\Repository\ReportRepository;
 use SilverStripe\Admin\LeftAndMain;
 use SilverStripe\Admin\ModelAdmin;
 use SilverStripe\Forms\FieldList;

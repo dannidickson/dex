@@ -1,16 +1,15 @@
 <?php
 
-namespace Dex\Model;
+namespace dannidickson\prismatic\Model;
 
-use Dex\Extensions\ORM\DexDataObjectSchema;
-use Marcz\Federer\Forms\FederatedComponent;
-use Marcz\Federer\Forms\FederatedFields;
+use dannidickson\prismatic\Extensions\ORM\DexDataObjectSchema;
+use dannidickson\prismatic\Forms\PrismaticReportField;
 use SilverStripe\Dev\Debug;
 use SilverStripe\Forms\HiddenField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataObject;
-use Dex\Model\Dataset;
-use Dex\Repository\DataSetRepository;
+use dannidickson\prismatic\Model\Dataset;
+use dannidickson\prismatic\Repository\DataSetRepository;
 use SilverStripe\Forms\DropdownField;
 
 class CustomReport extends DataObject
@@ -41,7 +40,7 @@ class CustomReport extends DataObject
 
             DropdownField::create('title', 'List of all the datasets', DataSetRepository::getAllTitles()),
 
-            FederatedComponent::create('TableGraph')
+            PrismaticReportField::create('TableGraph')
                 ->setComponentName('Dex.TableGraph')
                 ->setComponentProps([
                     'graphTypes' => [

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dex\Repository;
+namespace dannidickson\prismatic\Repository;
 
-use Dex\Model\CustomReport;
+use dannidickson\prismatic\Model\CustomReport;
 
 class ReportRepository {
 

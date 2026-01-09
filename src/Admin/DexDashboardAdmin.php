@@ -1,10 +1,10 @@
 <?php
 
-namespace Dex\Admin;
+namespace dannidickson\prismatic\Admin;
 
-use Dex\Model\CustomReportDataObject;
-use Dex\Repository\DataSetRepository;
-use Marcz\Federer\Forms\FederatedComponent;
+use dannidickson\prismatic\Model\CustomReportDataObject;
+use dannidickson\prismatic\Repository\DataSetRepository;
+use dannidickson\prismatic\Forms\PrismaticReportField;
 use SilverStripe\Admin\LeftAndMain;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
@@ -23,7 +23,7 @@ class DexDashbardAdmin extends LeftAndMain
 
         $form->setFields(FieldList::create([
             LiteralField::create('Test', 'Nothing to see here. <button>Want to create a new dashboard?</button>'),
-            FederatedComponent::create('Dashboard')
+            PrismaticReportField::create('Dashboard')
                 ->setComponentName('Dex.Dashboard')
                 ->setComponentProps([
                     'CustomReports' => DataSetRepository::getAll(),

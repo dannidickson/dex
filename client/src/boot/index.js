@@ -1,9 +1,8 @@
 /* global window */
 
 import registerComponents from 'boot/registerComponents';
-import installComponents from 'boot/installComponents';
+import 'legacy/ReportTableBuilder/ReportTableBuilderEntwine';
 
 window.document.addEventListener('DOMContentLoaded', () => {
   registerComponents();
-  installComponents();
 });

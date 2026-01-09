@@ -1,7 +1,5 @@
 const Path = require('path');
 const { JavascriptWebpackConfig, CssWebpackConfig } = require('@silverstripe/webpack-config');
-const { ModuleFederationPlugin } = require('webpack').container;
-
 const ENV = process.env.NODE_ENV;
 
 const PATHS = {
@@ -68,30 +66,6 @@ const JsConfig = new JavascriptWebpackConfig('js', PATHS)
     resolve: {
       extensions: ['.jsx', '.js', '.json'],
     },
-    plugins: [
-      new ModuleFederationPlugin({
-        name: 'Dex',
-        library: { type: 'var', name: 'Dex' },
-        filename: 'remoteEntry.js',
-        exposes: {
-          'Dex/TableBuilder': './client/src/components/TableBuilder/TableBuilder.js',
-        },
-        shared: {
-          react: {
-            import: 'react', // the "react" package will be used a provided and fallback module
-            shareKey: 'react', // under this name the shared module will be placed in the share scope
-            shareScope: 'default', // share scope with this name will be used
-            singleton: true, // only a single version of the shared module is allowed
-          },
-          'react-dom': {
-            singleton: true, // only a single version of the shared module is allowed
-          },
-          'lib/Injector': {
-            singleton: true, // only a single version of the shared module is allowed
-          },
-        },
-      }),
-    ],
   })
   .getConfig();
 

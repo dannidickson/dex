@@ -1,15 +1,17 @@
+import React from 'react';
+
 function Dashboard(props) {
-  let types = props.CustomReports;
+  const types = props.CustomReports || [];
   return (
     <div>
       <div>Reports</div>
       <ul>
-        {types.map(ele => (
-          <li>{ele.Title} {ele.ID}</li>
+        {types.map((ele) => (
+          <li key={ele.ID}>{ele.Title} {ele.ID}</li>
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
 export default Dashboard;

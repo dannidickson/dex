@@ -10,48 +10,11 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var boot_registerComponents__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! boot/registerComponents */ "./client/src/boot/registerComponents.js");
-/* harmony import */ var boot_installComponents__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! boot/installComponents */ "./client/src/boot/installComponents.js");
+/* harmony import */ var legacy_ReportTableBuilder_ReportTableBuilderEntwine__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! legacy/ReportTableBuilder/ReportTableBuilderEntwine */ "./client/src/legacy/ReportTableBuilder/ReportTableBuilderEntwine.js");
 
 
 window.document.addEventListener('DOMContentLoaded', () => {
   (0,boot_registerComponents__WEBPACK_IMPORTED_MODULE_0__["default"])();
-  (0,boot_installComponents__WEBPACK_IMPORTED_MODULE_1__["default"])();
-});
-
-/***/ }),
-
-/***/ "./client/src/boot/installComponents.js":
-/*!**********************************************!*\
-  !*** ./client/src/boot/installComponents.js ***!
-  \**********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "react-dom/client");
-/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom_client__WEBPACK_IMPORTED_MODULE_1__);
-
-
-/* harmony default export */ __webpack_exports__["default"] = (() => {
-  const rootDOMs = document.querySelectorAll('div[data-component-name^="Dex"]:not([loaded])');
-  const rootContainer = window['Federer'];
-  rootContainer.init();
-  rootContainer.get('Federer/InstallComponent').then(installer => {
-    const InstallComponent = installer().default;
-    rootDOMs.forEach(element => {
-      const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(element);
-      const name = element.dataset.componentName;
-      const title = element.dataset.componentTitle || name;
-      const props = JSON.parse(element.dataset.componentProps || null);
-      const children = element.dataset.componentChildren || null;
-      const Component = InstallComponent(name, title, props, children);
-      element.setAttribute('loaded', 'loaded');
-      root.render(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Component, {
-        noHolder: true
-      }));
-    });
-  });
 });
 
 /***/ }),
@@ -63,43 +26,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var components_ExampleComponent_ExampleComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! components/ExampleComponent/ExampleComponent */ "./client/src/components/ExampleComponent/ExampleComponent.js");
-/* harmony import */ var components_TableBuilder_TableBuilder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! components/TableBuilder/TableBuilder */ "./client/src/components/TableBuilder/TableBuilder.js");
-/* harmony import */ var _components_TableGraph_TableGraph__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/TableGraph/TableGraph */ "./client/src/components/TableGraph/TableGraph.js");
-/* harmony import */ var _components_Dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Dashboard/Dashboard */ "./client/src/components/Dashboard/Dashboard.js");
-
+/* harmony import */ var lib_Injector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lib/Injector */ "lib/Injector");
+/* harmony import */ var lib_Injector__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lib_Injector__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Dashboard/Dashboard */ "./client/src/components/Dashboard/Dashboard.js");
+/* harmony import */ var _components_ReportTableBuilder_ReportTableBuilder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/ReportTableBuilder/ReportTableBuilder */ "./client/src/components/ReportTableBuilder/ReportTableBuilder.js");
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (() => {
-  const container = window['Federer'];
-  if (container) {
-    container.init();
-    container.get('Federer/Injector').then(module => {
-      const Injector = module().default;
-      Injector.component.registerMany({
-        'Dex.ExampleComponent': components_ExampleComponent_ExampleComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
-        'Dex.TableBuilder': components_TableBuilder_TableBuilder__WEBPACK_IMPORTED_MODULE_1__["default"],
-        'Dex.TableGraph': _components_TableGraph_TableGraph__WEBPACK_IMPORTED_MODULE_2__["default"],
-        'Dex.Dashboard': _components_Dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_3__["default"]
-      });
-    });
-  }
+  lib_Injector__WEBPACK_IMPORTED_MODULE_0___default().component.registerMany({
+    Dashboard: _components_Dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ReportTableBuilder: _components_ReportTableBuilder_ReportTableBuilder__WEBPACK_IMPORTED_MODULE_2__["default"]
+  });
 });
-
-/***/ }),
-
-/***/ "./client/src/bundles/bundle.js":
-/*!**************************************!*\
-  !*** ./client/src/bundles/bundle.js ***!
-  \**************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _grid_field_reloader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./grid-field-reloader */ "./client/src/bundles/grid-field-reloader.js");
-/* harmony import */ var boot__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! boot */ "./client/src/boot/index.js");
-
-
 
 /***/ }),
 
@@ -132,165 +71,180 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default().entwine('ss', function ($) {
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
 function Dashboard(props) {
-  let types = props.CustomReports;
-  return React.createElement("div", null, React.createElement("div", null, "Reports"), React.createElement("ul", null, types.map(ele => React.createElement("li", null, ele.Title, " ", ele.ID))));
+  const types = props.CustomReports || [];
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Reports"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, types.map(ele => react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    key: ele.ID
+  }, ele.Title, " ", ele.ID))));
 }
 /* harmony default export */ __webpack_exports__["default"] = (Dashboard);
 
 /***/ }),
 
-/***/ "./client/src/components/ExampleComponent/ExampleComponent.js":
-/*!********************************************************************!*\
-  !*** ./client/src/components/ExampleComponent/ExampleComponent.js ***!
-  \********************************************************************/
+/***/ "./client/src/components/ReportTableBuilder/ReportTableBuilder.js":
+/*!************************************************************************!*\
+  !*** ./client/src/components/ReportTableBuilder/ReportTableBuilder.js ***!
+  \************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Component: function() { return /* binding */ ReportTableBuilder; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var components_FieldHolder_FieldHolder__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! components/FieldHolder/FieldHolder */ "components/FieldHolder/FieldHolder");
+/* harmony import */ var components_FieldHolder_FieldHolder__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(components_FieldHolder_FieldHolder__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+const ReportTableBuilder = _ref => {
+  let {
+    tableTitle,
+    data
+  } = _ref;
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "report-builder__card"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, tableTitle), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Report table builder component"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "This will contain the table builder UI"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ReportTables, {
+    tables: data.tableNames
+  }));
+};
+const ReportTables = _ref2 => {
+  let {
+    tables
+  } = _ref2;
+  if (!tables || tables.length === 0) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "No tables available");
+  }
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "report-tables"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Available Tables"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, tables.map((table, index) => react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    key: index
+  }, table.Table || table.ClassName || table))));
+};
+ReportTables.propTypes = {
+  tables: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().array)
+};
+ReportTables.defaultProps = {
+  tables: []
+};
+ReportTableBuilder.propTypes = {
+  tableTitle: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().string),
+  data: prop_types__WEBPACK_IMPORTED_MODULE_1___default().shape({
+    tableNames: (prop_types__WEBPACK_IMPORTED_MODULE_1___default().array)
+  })
+};
+ReportTableBuilder.defaultProps = {
+  tableTitle: 'Build a Report',
+  data: {
+    tableNames: []
+  }
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (components_FieldHolder_FieldHolder__WEBPACK_IMPORTED_MODULE_2___default()(ReportTableBuilder));
+
+/***/ }),
+
+/***/ "./client/src/legacy/ReportTableBuilder/ReportTableBuilderEntwine.js":
+/*!***************************************************************************!*\
+  !*** ./client/src/legacy/ReportTableBuilder/ReportTableBuilderEntwine.js ***!
+  \***************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "react-dom/client");
+/* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom_client__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var lib_Injector__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lib/Injector */ "lib/Injector");
+/* harmony import */ var lib_Injector__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lib_Injector__WEBPACK_IMPORTED_MODULE_2__);
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 
-const ExampleComponent = () => react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-  className: "example-component"
-}, "This is an example");
-/* harmony default export */ __webpack_exports__["default"] = (ExampleComponent);
+
+
+window.jQuery.entwine('ss', $ => {
+  $('.js-injector-boot .prismatic-rb-holder').entwine({
+    Root: null,
+    Component: null,
+    onmatch() {
+      const cmsContent = this.closest('.cms-content').attr('id');
+      const context = cmsContent ? {
+        context: cmsContent
+      } : {};
+      const schema = this.data('schema');
+      if (schema) {
+        this.data('entwine-value', schema.value);
+        const Root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(this[0]);
+        const ReactField = (0,lib_Injector__WEBPACK_IMPORTED_MODULE_2__.loadComponent)(schema.component, context);
+        this.setRoot(Root);
+        this.setComponent(ReactField);
+        this._super();
+        this.refresh();
+      }
+    },
+    onunmatch() {
+      const Root = this.getRoot();
+      if (Root) {
+        Root.unmount();
+      }
+    },
+    getProps() {
+      return {
+        ...this.data('schema'),
+        value: this.data('entwine-value') || '',
+        onChange: this.handleChange.bind(this)
+      };
+    },
+    refresh() {
+      const Root = this.getRoot();
+      const ReactField = this.getComponent();
+      const props = this.getProps();
+      console.log(props);
+      Root.render(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ReactField, _extends({}, props, {
+        noHolder: true
+      })));
+    },
+    handleChange(value) {
+      this.data('entwine-value', value);
+      this.refresh();
+    }
+  });
+});
 
 /***/ }),
 
-/***/ "./client/src/components/TableBuilder/TableBuilder.js":
-/*!************************************************************!*\
-  !*** ./client/src/components/TableBuilder/TableBuilder.js ***!
-  \************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ "components/FieldHolder/FieldHolder":
+/*!******************************!*\
+  !*** external "FieldHolder" ***!
+  \******************************/
+/***/ (function(module) {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-const ENDPOINT = '/dex/api/1/reports';
-function TableBuilder(props) {
-  let tables = JSON.parse(props.tables);
-  const [selectedTable, setSelectedTable] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const [fields, setFields] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)();
-  const [search, setSearch] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const [tableHeaders, setTableHeaders] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-  const [tableData, settableData] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-  const [groupBy, setGroupBy] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
-  const [limit, setLimit] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)();
-  const reportTable = document.querySelector('[name="ReportTable"]');
-  const reportFields = document.querySelector('[name="ReportFields"]');
-  const reportGroupBy = document.querySelector('[name="ReportGroupBy"]');
-  const reportLimit = document.querySelector('[name="ReportLimit"]');
-  function handleClick(tableInfo) {
-    setSelectedTable(tableInfo);
-    setTableHeaders([]);
-    settableData([]);
-    setGroupBy('');
-    setLimit();
-    reportTable.value = tableInfo.ClassName;
-    fetch(`${ENDPOINT}/getFields?tableName=${tableInfo.ClassName}`).then(res => res.json()).then(data => {
-      setFields(Object.keys(data));
-    });
-  }
-  function handleFieldClick(fieldName) {
-    setTableHeaders([...tableHeaders, fieldName]);
-    reportFields.value += `${fieldName}, `;
-  }
-  function handleSetLimit(limit) {
-    setLimit(limit);
-    reportLimit.value = limit;
-  }
-  function handleGroupBy(groupBy) {
-    setGroupBy(groupBy);
-    reportGroupBy.value = groupBy;
-  }
-  function handleTableData() {
-    let body = {
-      table: selectedTable.ClassName,
-      columns: tableHeaders
-    };
-    if (limit) {
-      body.limit = limit;
-    }
-    if (groupBy) {
-      body.groupBy = groupBy;
-    }
-    return fetch(`${ENDPOINT}/tableData`, {
-      method: 'POST',
-      body: JSON.stringify(body),
-      credentials: 'same-origin'
-    }).then(res => res.json()).then(data => {
-      console.log(data);
-      data.map(row => {
-        Object.keys(row).map(column => {
-          console.log(column);
-        });
-      });
-      settableData(data);
-    });
-  }
-  return React.createElement("div", {
-    class: "dex-report-builder"
-  }, React.createElement("div", {
-    className: "dex-builder__tables"
-  }, React.createElement("h4", null, "Tables"), React.createElement("input", {
-    name: "search",
-    value: search,
-    onChange: e => setSearch(e.target.value)
-  }), React.createElement("div", {
-    className: "dex-menu"
-  }, tables.map(table => React.createElement("div", {
-    className: "dex-item",
-    onClick: () => handleClick(table)
-  }, table.Table)))), React.createElement("div", {
-    className: "dex-builder__fields"
-  }, React.createElement("h4", null, "Fields"), React.createElement("div", {
-    className: "dex-menu"
-  }, fields && fields.map(field => React.createElement("div", {
-    className: "dex-item",
-    onClick: () => handleFieldClick(field)
-  }, field)))), React.createElement("div", {
-    className: "dex-builder__fields"
-  }, React.createElement("h4", null, "Table layout ", React.createElement("button", {
-    onClick: handleTableData
-  }, "Get data")), React.createElement("div", {
-    className: "filters"
-  }, React.createElement("div", null, "Group by:"), React.createElement("select", {
-    value: groupBy,
-    onChange: e => handleGroupBy(e.target.value)
-  }, tableHeaders.map((header, index) => React.createElement("option", {
-    key: index
-  }, header))), React.createElement("div", null, React.createElement("label", null, "Limit"), React.createElement("input", {
-    type: "number",
-    name: "limit",
-    value: limit,
-    onChange: e => handleSetLimit(e.target.value)
-  }))), React.createElement("div", {
-    className: "dex-menu"
-  }, React.createElement("table", {
-    className: "dex-table"
-  }, React.createElement("thead", null, React.createElement("tr", null, groupBy && React.createElement("th", null, "Count from Groupby"), tableHeaders && tableHeaders.map(header => React.createElement("th", null, header)))), tableData && React.createElement("tbody", null, tableData.map((object, index) => React.createElement("tr", {
-    key: index
-  }, Object.values(object).map((column, i) => React.createElement("td", {
-    key: i
-  }, column ? column : 'N/A')))))))));
-}
-/* harmony default export */ __webpack_exports__["default"] = (TableBuilder);
+module.exports = FieldHolder;
 
 /***/ }),
 
-/***/ "./client/src/components/TableGraph/TableGraph.js":
-/*!********************************************************!*\
-  !*** ./client/src/components/TableGraph/TableGraph.js ***!
-  \********************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ "lib/Injector":
+/*!***************************!*\
+  !*** external "Injector" ***!
+  \***************************/
+/***/ (function(module) {
 
-__webpack_require__.r(__webpack_exports__);
-function TableGraph(props) {
-  let types = props.graphTypes;
-  return React.createElement("div", null, React.createElement("div", null, "Graphs and options to show will go here"), React.createElement("ul", null, types.map(ele => React.createElement("li", null, ele))));
-}
-/* harmony default export */ __webpack_exports__["default"] = (TableGraph);
+module.exports = Injector;
+
+/***/ }),
+
+/***/ "prop-types":
+/*!****************************!*\
+  !*** external "PropTypes" ***!
+  \****************************/
+/***/ (function(module) {
+
+module.exports = PropTypes;
 
 /***/ }),
 
@@ -350,12 +304,6 @@ module.exports = jQuery;
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = __webpack_module_cache__;
-/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	!function() {
@@ -397,59 +345,18 @@ module.exports = jQuery;
 /******/ 		};
 /******/ 	}();
 /******/ 	
-/******/ 	/* webpack/runtime/sharing */
-/******/ 	!function() {
-/******/ 		__webpack_require__.S = {};
-/******/ 		var initPromises = {};
-/******/ 		var initTokens = {};
-/******/ 		__webpack_require__.I = function(name, initScope) {
-/******/ 			if(!initScope) initScope = [];
-/******/ 			// handling circular init calls
-/******/ 			var initToken = initTokens[name];
-/******/ 			if(!initToken) initToken = initTokens[name] = {};
-/******/ 			if(initScope.indexOf(initToken) >= 0) return;
-/******/ 			initScope.push(initToken);
-/******/ 			// only runs once
-/******/ 			if(initPromises[name]) return initPromises[name];
-/******/ 			// creates a new share scope if needed
-/******/ 			if(!__webpack_require__.o(__webpack_require__.S, name)) __webpack_require__.S[name] = {};
-/******/ 			// runs all init snippets from all modules reachable
-/******/ 			var scope = __webpack_require__.S[name];
-/******/ 			var warn = function(msg) {
-/******/ 				if (typeof console !== "undefined" && console.warn) console.warn(msg);
-/******/ 			};
-/******/ 			var uniqueName = "silverstripe-module-skeleton";
-/******/ 			var register = function(name, version, factory, eager) {
-/******/ 				var versions = scope[name] = scope[name] || {};
-/******/ 				var activeVersion = versions[version];
-/******/ 				if(!activeVersion || (!activeVersion.loaded && (!eager != !activeVersion.eager ? eager : uniqueName > activeVersion.from))) versions[version] = { get: factory, from: uniqueName, eager: !!eager };
-/******/ 			};
-/******/ 			var initExternal = function(id) {
-/******/ 				var handleError = function(err) { warn("Initialization of sharing external failed: " + err); };
-/******/ 				try {
-/******/ 					var module = __webpack_require__(id);
-/******/ 					if(!module) return;
-/******/ 					var initFn = function(module) { return module && module.init && module.init(__webpack_require__.S[name], initScope); }
-/******/ 					if(module.then) return promises.push(module.then(initFn, handleError));
-/******/ 					var initResult = initFn(module);
-/******/ 					if(initResult && initResult.then) return promises.push(initResult['catch'](handleError));
-/******/ 				} catch(err) { handleError(err); }
-/******/ 			}
-/******/ 			var promises = [];
-/******/ 			switch(name) {
-/******/ 			}
-/******/ 			if(!promises.length) return initPromises[name] = 1;
-/******/ 			return initPromises[name] = Promise.all(promises).then(function() { return initPromises[name] = 1; });
-/******/ 		};
-/******/ 	}();
-/******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// module cache are used so entry inlining is disabled
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	var __webpack_exports__ = __webpack_require__("./client/src/bundles/bundle.js");
-/******/ 	
+var __webpack_exports__ = {};
+/*!**************************************!*\
+  !*** ./client/src/bundles/bundle.js ***!
+  \**************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var legacy_ReportTableBuilder_ReportTableBuilderEntwine__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! legacy/ReportTableBuilder/ReportTableBuilderEntwine */ "./client/src/legacy/ReportTableBuilder/ReportTableBuilderEntwine.js");
+/* harmony import */ var _grid_field_reloader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid-field-reloader */ "./client/src/bundles/grid-field-reloader.js");
+/* harmony import */ var boot__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! boot */ "./client/src/boot/index.js");
+
+
+
 /******/ })()
 ;
 //# sourceMappingURL=bundle.js.map

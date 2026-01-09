@@ -1,9 +1,9 @@
 <?php
 
-namespace Dex\Model;
+namespace dannidickson\prismatic\Model;
 
-use Dex\Extensions\ORM\DexDataObjectSchema;
-use Marcz\Federer\Forms\FederatedComponent;
+use dannidickson\prismatic\Extensions\ORM\DexDataObjectSchema;
+use dannidickson\prismatic\Forms\ReportTableBuilder;
 use SilverStripe\Dev\Debug;
 use SilverStripe\Forms\HiddenField;
 use SilverStripe\Forms\TextField;
@@ -28,20 +28,16 @@ class Dataset extends DataObject
         $fields = parent::getCMSFields();
         $fields->addFieldsToTab('Root.Main', [
             TextField::create('Title', 'Data set title'),
-            FederatedComponent::create('TableBuilder')
-                ->setComponentName('Dex.TableBuilder')
-                ->setComponentProps([
-                    'tableTitle' => 'Build a new report',
-                    'tables' => json_encode($tableNames),
-                ]),
+            ReportTableBuilder::create('ReportBuilder', 'Build Your Report')
+            ->setTableNames($tableNames)
         ]);
 
-        $fields->addFieldsToTab('Root.Main', [
-            HiddenField::create('ReportTable'),
-            HiddenField::create('ReportFields'),
-            HiddenField::create('ReportLimit'),
-            HiddenField::create('ReportGroupBy'),
-        ]);
+        // $fields->addFieldsToTab('Root.Main', [
+        //     HiddenField::create('ReportTable'),
+        //     HiddenField::create('ReportFields'),
+        //     HiddenField::create('ReportLimit'),
+        //     HiddenField::create('ReportGroupBy'),
+        // ]);
         return $fields;
     }
 

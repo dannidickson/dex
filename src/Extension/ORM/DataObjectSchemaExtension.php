@@ -1,6 +1,6 @@
 <?php
 
-namespace Dex\Extensions\ORM;
+namespace dannidickson\prismatic\Extensions\ORM;
 
 use SilverStripe\Core\Config\Configurable;
 use SilverStripe\Core\Injector\Injectable;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dex\Repository;
+namespace dannidickson\prismatic\Repository;
 
-use Dex\Model\Dataset;
+use dannidickson\prismatic\Model\Dataset;
 
 class DataSetRepository {
 

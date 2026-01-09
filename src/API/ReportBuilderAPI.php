@@ -1,6 +1,6 @@
 <?php
 
-namespace Dex\API;
+namespace dannidickson\prismatic\API;
 
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\HTTPRequest;

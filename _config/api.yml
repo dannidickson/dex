@@ -6,4 +6,4 @@ After:
 ---
 SilverStripe\Control\Director:
   rules:
-    'dex/api/1/reports//$Action': Dex\API\ReportBuilderAPI
+    'dex/api/1/reports//$Action': dannidickson\prismatic\API\ReportBuilderAPI
