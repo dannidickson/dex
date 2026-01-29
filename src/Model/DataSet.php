@@ -12,6 +12,8 @@ use SilverStripe\ORM\DataObject;
 class Dataset extends DataObject
 {
 
+    private static string $table_name = 'Dataset';
+
     private static array $db = [
         'Title' => 'Text',
         'ReportConfiguration' => 'Text',
@@ -26,18 +28,13 @@ class Dataset extends DataObject
         $tableNames = $this->getAllDataObjects();
 
         $fields = parent::getCMSFields();
+        $fields->removeByName(['Title', 'ReportConfiguration']);
+
         $fields->addFieldsToTab('Root.Main', [
-            TextField::create('Title', 'Data set title'),
             ReportTableBuilder::create('ReportBuilder', 'Build Your Report')
             ->setTableNames($tableNames)
         ]);
 
-        // $fields->addFieldsToTab('Root.Main', [
-        //     HiddenField::create('ReportTable'),
-        //     HiddenField::create('ReportFields'),
-        //     HiddenField::create('ReportLimit'),
-        //     HiddenField::create('ReportGroupBy'),
-        // ]);
         return $fields;
     }
 

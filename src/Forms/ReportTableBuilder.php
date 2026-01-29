@@ -58,4 +58,12 @@ class ReportTableBuilder extends FormField
             ]
         );
     }
+
+    /**
+     * Returns just the field itself without the wrapper label
+     */
+    public function FieldHolder($properties = [])
+    {
+        return $this->Field($properties);
+    }
 }

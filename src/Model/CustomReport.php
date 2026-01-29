@@ -14,6 +14,7 @@ use SilverStripe\Forms\DropdownField;
 
 class CustomReport extends DataObject
 {
+    private static string $table_name = 'CustomReport';
     private static array $db = [
         'Title' => 'Text',
     ];

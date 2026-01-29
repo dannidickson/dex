@@ -109,10 +109,22 @@ const ReportTableBuilder = _ref => {
     data
   } = _ref;
   return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "report-builder__card"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, tableTitle), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Report table builder component"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "This will contain the table builder UI"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ReportTables, {
+    className: "report-builder__container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "report-builder__menu-holder"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "report-builder__menu"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(ReportTables, {
     tables: data.tableNames
-  }));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "report-builder__second-menu"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "SELECTED FIELDS"))), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "report-builder__table-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "report-builder__table-header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    className: "report-builder__table-title"
+  }, "Table layout"))));
 };
 const ReportTables = _ref2 => {
   let {
@@ -123,7 +135,10 @@ const ReportTables = _ref2 => {
   }
   return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "report-tables"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Available Tables"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", null, tables.map((table, index) => react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "TABLES"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+    className: "report-tables__list"
+  }, tables.map((table, index) => react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", {
+    className: "report-tables__item",
     key: index
   }, table.Table || table.ClassName || table))));
 };

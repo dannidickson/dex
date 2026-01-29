@@ -3,13 +3,23 @@ import PropTypes from 'prop-types';
 import fieldHolder from 'components/FieldHolder/FieldHolder';
 
 const ReportTableBuilder = ({ tableTitle, data }) => (
-  <div className="report-builder__card">
-    <h3>{tableTitle}</h3>
-    <p>Report table builder component</p>
-    <p>This will contain the table builder UI</p>
+  <div className="report-builder__container">
 
-    {/* {data.filterType} */}
-    <ReportTables tables={data.tableNames} />
+    <div className="report-builder__menu-holder">
+      <div className="report-builder__menu">
+        <ReportTables tables={data.tableNames} />
+      </div>
+
+      <div className="report-builder__second-menu">
+        <h4>SELECTED FIELDS</h4>
+      </div>
+    </div>
+
+    <div className="report-builder__table-container">
+      <div className="report-builder__table-header">
+        <h3 className="report-builder__table-title">Table layout</h3>
+      </div>
+    </div>
   </div>
 );
 
@@ -20,10 +30,10 @@ const ReportTables = ({ tables }) => {
 
   return (
     <div className="report-tables">
-      <h4>Available Tables</h4>
-      <ul>
+      <h4>TABLES</h4>
+      <ul className="report-tables__list">
         {tables.map((table, index) => (
-          <li key={index}>
+          <li className="report-tables__item" key={index}>
             {table.Table || table.ClassName || table}
           </li>
         ))}
